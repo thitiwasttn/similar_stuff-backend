@@ -5,9 +5,21 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
+
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class AmazonProductM {
+    private String id;
+    private String productName;
+    private String brandName;
+    private List<String> categories;
+    private String sellingPrice;
+    private String productSpecification;
+    private String technicalDetails;
+    private String image;
+    private String productUrl;
 }
