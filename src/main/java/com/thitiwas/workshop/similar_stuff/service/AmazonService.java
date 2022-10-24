@@ -2,8 +2,13 @@ package com.thitiwas.workshop.similar_stuff.service;
 
 import com.thitiwas.workshop.similar_stuff.entity.AmazonProductEntity;
 import com.thitiwas.workshop.similar_stuff.model.AmazonProductM;
+import com.thitiwas.workshop.similar_stuff.model.Pagination;
+import com.thitiwas.workshop.similar_stuff.model.ResponseListAmazonProduct;
 import com.thitiwas.workshop.similar_stuff.repository.AmazonProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -26,6 +31,27 @@ public class AmazonService {
             return Optional.empty();
         }
         return Optional.of(convertEntityToModel(amazonProduct.get()));
+    }
+
+    public ResponseListAmazonProduct getList(int size, int page) {
+        List<AmazonProductM> products = new ArrayList<>();
+        PageRequest pageRequest = PageRequest.of(page, size);
+        Page<AmazonProductEntity> amazonProductEntities = amazonProductRepository.findAll(pageRequest);
+
+        for (AmazonProductEntity amazonProductEntity : amazonProductEntities.getContent()) {
+            products.add(convertEntityToModel(amazonProductEntity));
+        }
+
+
+        return ResponseListAmazonProduct.builder()
+                .products(products)
+                .pagination(Pagination.builder()
+                        .page(page)
+                        .pageSize(size)
+                        .pageCount(amazonProductEntities.getTotalPages())
+                        .total((int) amazonProductEntities.getTotalElements())
+                        .build())
+                .build();
     }
 
     public AmazonProductM convertEntityToModel(AmazonProductEntity a) {
