@@ -18,57 +18,57 @@ public class AmazonProductEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
     @Column(name = "product_name")
-    public String productName;
+    private String productName;
     @Column(name = "brand_name")
-    public String brandName;
+    private String brandName;
     @Column(name = "asian")
-    public String asian;
+    private String asian;
     @Column(name = "category")
-    public String category;
+    private String category;
     @Column(name = "upc_ean_code")
-    public String upcEanCode;
+    private String upcEanCode;
     @Column(name = "list_price")
-    public String listPrice;
+    private String listPrice;
     @Column(name = "selling_price")
-    public String sellingPrice;
+    private String sellingPrice;
     @Column(name = "quantity")
-    public String quantity;
+    private String quantity;
     @Column(name = "product_specification")
-    public String productSpecification;
+    private String productSpecification;
     @Column(name = "about_product")
-    public String aboutProduct;
+    private String aboutProduct;
     @Column(name = "technical_details")
-    public String technicalDetails;
+    private String technicalDetails;
     @Column(name = "shipping_weight")
-    public String shippingWeight;
+    private String shippingWeight;
     @Column(name = "product_dimensions")
-    public String productDimensions;
+    private String productDimensions;
     @Column(name = "image")
-    public String image;
+    private String image;
     @Column(name = "variants")
-    public String variants;
+    private String variants;
     @Column(name = "sku")
-    public String sku;
+    private String sku;
     @Column(name = "product_url")
-    public String productUrl;
+    private String productUrl;
     @Column(name = "stock")
-    public String stock;
+    private String stock;
     @Column(name = "product_details")
-    public String productDetails;
+    private String productDetails;
     @Column(name = "dimensions")
-    public String dimensions;
+    private String dimensions;
     @Column(name = "color")
-    public String color;
+    private String color;
     @Column(name = "ingredients")
-    public String ingredients;
+    private String ingredients;
     @Column(name = "direction_to_use")
-    public String directionToUse;
+    private String directionToUse;
     @Column(name = "is_amazon_seller")
-    public String isAmazonSeller;
+    private String isAmazonSeller;
     @Column(name = "size_quantity_variant")
-    public String sizeQuantityVariant;
+    private String sizeQuantityVariant;
     @Column(name = "product_description")
-    public String productDescription;
+    private String productDescription;
     @Column(name = "model_number")
-    public String modelNumber;
+    private String modelNumber;
 }
