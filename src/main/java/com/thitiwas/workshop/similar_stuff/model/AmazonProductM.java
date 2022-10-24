@@ -18,8 +18,9 @@ public class AmazonProductM {
     private String brandName;
     private List<String> categories;
     private String sellingPrice;
-    private String productSpecification;
-    private String technicalDetails;
+    private List<String> productSpecification;
+    private List<String> technicalDetails;
     private String image;
     private String productUrl;
+    private List<String> aboutProduct;
 }

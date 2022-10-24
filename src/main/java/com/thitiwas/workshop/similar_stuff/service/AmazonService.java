@@ -61,16 +61,37 @@ public class AmazonService {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        List<String> productSpeci = new ArrayList<>();
+        try {
+            productSpeci = Arrays.asList(a.getProductSpecification().split("\\|"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        List<String> technicalDetails = new ArrayList<>();
+        try {
+            technicalDetails = Arrays.asList(a.getTechnicalDetails().split("\\|"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        List<String> aboutProduct = new ArrayList<>();
+        try {
+            aboutProduct = Arrays.asList(a.getAboutProduct().split("\\|"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return AmazonProductM.builder()
                 .id(a.getId())
                 .productName(a.getProductName())
                 .brandName(a.getBrandName())
                 .categories(categories)
                 .sellingPrice(a.getSellingPrice())
-                .productSpecification(a.getProductSpecification())
-                .technicalDetails(a.getTechnicalDetails())
+                .productSpecification(productSpeci)
+                .technicalDetails(technicalDetails)
                 .image(a.getImage())
                 .productUrl(a.getProductUrl())
+                .aboutProduct(aboutProduct)
                 .build();
     }
 }
